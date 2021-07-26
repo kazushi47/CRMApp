@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/addressFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.crmapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/addressFragment"
+        android:name="com.example.crmapp.AddressFragment"
+        android:label="@string/address_fragment_label"
+        tools:layout="@layout/fragment_address" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.crmapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+            android:id="@+id/action_addressFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_addressFragment_self"
+            app:destination="@id/addressFragment"
+            app:popUpTo="@id/addressFragment"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment android:id="@+id/homeFragment" >
+        <action
+            android:id="@+id/action_placeholder2_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+    <fragment android:id="@+id/contactFragment" />
 </navigation>
